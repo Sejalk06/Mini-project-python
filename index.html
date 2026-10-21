@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediVision AI — Human Anatomy Atlas</title>
+<meta name="description" content="An interactive educational human anatomy atlas with organ systems, learning cards and quizzes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <a class="brand" href="#"><span class="brand-mark">✚</span><span>MediVision<span class="brand-ai"> AI</span><small>ANATOMY LEARNING LAB</small></span></a>
+  <div class="nav-label">WORKSPACE</div>
+  <button class="nav-item active" data-view="atlas"><span>◉</span> Anatomy Atlas</button>
+  <button class="nav-item" data-view="systems"><span>⌘</span> Body Systems</button>
+  <button class="nav-item" data-view="quiz"><span>▤</span> Knowledge Check</button>
+  <div class="sidebar-bottom"><div class="status-dot"></div><div><b>Learning mode</b><small>Educational preview · v1.0</small></div></div>
+</aside>
+<main class="main">
+<header class="topbar"><div><div class="eyebrow">MEDICAL LEARNING PLATFORM</div><h1 id="page-title">Human Anatomy Atlas</h1></div><div class="top-actions"><span class="live-pill"><i></i> SYSTEM ONLINE</span><button class="avatar" title="Student profile">S</button></div></header>
+<section id="atlas-view" class="view">
+  <div class="hero"><div><div class="hero-kicker">EXPLORE THE HUMAN BODY</div><h2>Every system.<br><em>One living map.</em></h2><p>Explore major human body systems, understand how organs work together, and test your knowledge through quick learning cards.</p><div class="hero-stats"><div><b>11</b><span>Body systems</span></div><div><b>06</b><span>Featured organs</span></div><div><b>∞</b><span>Curiosity</span></div></div></div>
+  <div class="anatomy-stage"><div class="stage-orbit orbit-one"></div><div class="stage-orbit orbit-two"></div><div class="stage-label label-top"><span></span> HUMAN ANATOMY / 001</div>
+  <div class="body-visual"><img id="body-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Human_body_front.png" alt="Human body anatomical reference" onerror="this.style.display='none';document.getElementById('fallback-body').style.display='flex'"><div id="fallback-body" class="fallback-body"><div class="head"></div><div class="neck"></div><div class="torso"><div class="lung l"></div><div class="lung r"></div><div class="heart"></div><div class="stomach"></div></div><div class="arm left"></div><div class="arm right"></div><div class="leg left"></div><div class="leg right"></div></div></div>
+  <button class="hotspot h-heart" data-organ="Heart"><span></span><b>01</b></button><button class="hotspot h-lungs" data-organ="Lungs"><span></span><b>02</b></button><button class="hotspot h-brain" data-organ="Brain"><span></span><b>03</b></button>
+  <div class="stage-footer"><span>FIG. 01</span><span>HUMAN BODY OVERVIEW</span><span>ANTERIOR VIEW</span></div></div></div>
+  <div class="section-heading"><div><div class="eyebrow">DISCOVER</div><h3>Explore by body system</h3></div><button class="text-button" data-goto="systems">View all systems ↗</button></div>
+  <div class="system-grid" id="system-grid"></div>
+  <div class="section-heading organs-heading"><div><div class="eyebrow">FOCUS STUDY</div><h3>Meet the key organs</h3></div><span class="muted">Select an organ to learn more</span></div>
+  <div class="organ-grid" id="organ-grid"></div>
+</section>
+<section id="systems-view" class="view hidden"><div class="intro-panel"><div class="eyebrow">THE BODY, CONNECTED</div><h2>Explore the systems that keep us alive.</h2><p>Choose a system to see its main function and the organs commonly associated with it.</p></div><div class="system-grid system-grid-large" id="all-systems"></div></section>
+<section id="quiz-view" class="view hidden"><div class="quiz-wrap"><div class="eyebrow">KNOWLEDGE CHECK / 01</div><h2>Test what you know.</h2><p class="muted">A quick, beginner-friendly anatomy quiz. Educational use only.</p><div class="quiz-card"><div class="quiz-progress"><span id="quiz-count">QUESTION 01 / 05</span><span id="quiz-score">SCORE 0</span></div><div class="progress-track"><div id="progress-fill"></div></div><h3 id="question">Which organ pumps blood around the body?</h3><div id="answers" class="answers"></div><div id="feedback" class="feedback"></div><button id="next-question" class="primary-button" disabled>Next question →</button></div></div></section>
+<footer><span>✚ MediVision AI</span><span>Educational anatomy experience · Not a diagnostic tool</span></footer>
+</main>
+</div>
+<div class="modal-backdrop hidden" id="modal"><div class="modal"><button class="modal-close" id="close-modal">×</button><div class="modal-icon" id="modal-icon">✚</div><div class="eyebrow" id="modal-category">ORGAN PROFILE</div><h2 id="modal-title">Heart</h2><p id="modal-desc"></p><div class="fact-box"><b>KEY FUNCTION</b><p id="modal-function"></p></div><div class="fact-box"><b>LEARNING NOTE</b><p id="modal-note"></p></div><button class="primary-button" id="modal-done">Got it</button></div></div>
+<script src="script.js"></script>
+</body></html>
